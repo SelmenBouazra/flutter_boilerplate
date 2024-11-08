@@ -53,7 +53,7 @@ This Flutter boilerplate provides a solid foundation for mobile app development,
 
 1. **Clone the repository**:
    ```bash
-   git clone <repo-url>
+   git clone <https://github.com/SelmenBouazra/flutter_boilerplate.git>
    ```
 
 2. **Install dependencies**:
