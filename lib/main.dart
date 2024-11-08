@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_boilerplate/injection_container.dart' as di;
 
 import 'config/app_config.dart';
+import 'core/routers/app_router.dart';
 import 'core/theme/app_theme.dart';
-import 'core/utils/pref_utils.dart';
-import 'feature/setting/presentation/bloc/setting_bloc.dart';
 import 'generated/l10n.dart';
 
 void main() async {
@@ -32,34 +32,23 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SettingBloc(prefUtils: di.sl<PrefUtils>()),
-      child: BlocBuilder<SettingBloc, SettingState>(
-        buildWhen: (previous, current) =>
-        previous.locale != current.locale,
-        builder: (context, state) {
-          return ScreenUtilInit(
-            designSize: const Size(390, 844),
-            minTextAdapt: true,
-            builder: (BuildContext context, child) {
-              return MaterialApp.router(
-                title: 'Effia Mobile',
-                theme: appTheme,
-                debugShowCheckedModeBanner: false,
-                localizationsDelegates: [
-                  S.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: S.delegate.supportedLocales,
-                locale: state.locale,
-                routerConfig: _appRouter.config(),
-              );
-            },
-          );
-        },
-      ),
+    return ScreenUtilInit(
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+      builder: (BuildContext context, child) {
+        return MaterialApp.router(
+          theme: appTheme,
+          debugShowCheckedModeBanner: false,
+          localizationsDelegates: [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          routerConfig: _appRouter.config(),
+        );
+      },
     );
   }
 }

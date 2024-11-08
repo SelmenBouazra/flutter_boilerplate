@@ -118,7 +118,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     inverseColor: true,
                     onPressed: () {
                       widget.login(LoginRequest(
-                          userEmail: _controllerEmail.text.trim(),
+                          username: _controllerEmail.text.trim(),
                           password: _controllerPassword.text));
                     }),
               ),

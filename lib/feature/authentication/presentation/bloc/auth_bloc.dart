@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_boilerplate/feature/authentication/data/models/auth_response.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../core/network/error/app_exception_response.dart';
 import '../../../../core/utils/pref_utils.dart';
-import '../../data/models/user.dart';
 import '../../domain/entities/login_request.dart';
 import '../../domain/use_cases/login_use_case.dart';
 
@@ -32,7 +32,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     response.fold((failure) {
       emit(FailureLoginState(error: failure));
     }, (response) async {
-      emit(SuccessLoginState(user: response.user));
+      emit(SuccessLoginState(authResponse: response));
     });
   }
 }

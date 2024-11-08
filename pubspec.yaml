@@ -30,7 +30,7 @@ dependencies:
   # Service locator
   get_it: ^8.0.2
   # Remote API
-  internet_connection_checker_plus: ^2.5.2
+  internet_connection_checker: ^1.0.0+1
   # Local cache
   shared_preferences: ^2.3.2
 
@@ -42,7 +42,10 @@ dependencies:
 
   flutter_native_splash: ^2.4.2
 
-  auto_route: ^9.2.2
+  auto_route: 7.9.2
+
+  cached_network_image: ^3.4.1
+
 
 flutter_native_splash:
   color: "#1F1852"
@@ -51,6 +54,21 @@ flutter_native_splash:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  auto_route_generator: ^7.1.1
+  flutter_launcher_icons: "^0.13.1"
+  build_runner: ^2.4.4
+  json_serializable: ^6.6.1
+
+dependency_overrides:
+  intl: ^0.19.0
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.png"
+
+  flutter_lints: ^2.0.0
 
 
 

@@ -8,9 +8,9 @@ class AuthInitial extends AuthState {}
 class IsFirstTime extends AuthState{}
 
 class SuccessLoginState extends AuthInitial{
-  final User? user;
+  final AuthResponse? authResponse;
 
-  SuccessLoginState({required this.user});
+  SuccessLoginState({required this.authResponse});
 }
 class LoadingLoginState extends AuthInitial{}
 

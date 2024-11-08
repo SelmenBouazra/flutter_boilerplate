@@ -1,12 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_boilerplate/injection_container.dart' as di;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_boilerplate/injection_container.dart' as di;
 
-import '../../../../core/routers/app_router.gr.dart';
 import '../../../../core/theme/color.dart';
 import '../../../../core/widgets/custom_dialog.dart';
-import '../../../../generated/l10n.dart';
 import '../../domain/entities/login_request.dart';
 import '../bloc/auth_bloc.dart';
 import '../widgets/login_widget.dart';
@@ -53,20 +51,18 @@ class _LoginScreenState extends State<LoginScreen> {
           }
 
           if (state is SuccessLoginState) {
-              if(state.user?.isVerified == true) {
-              context.replaceRoute(MainAccountManagerRoute());
-            } else{
+
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     return CustomDialog(
-                      message: S.of(context).a_verification_email_has_been_sent_to_your_email,
+                      message: "Hello ${state.authResponse?.firstName}",
                       onTap: () {},
                     );
                   },
                 );
               }
-          }
+
         },
         builder: (context, state) {
           return Scaffold(
