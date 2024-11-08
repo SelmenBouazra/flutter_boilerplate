@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate/injection_container.dart' as di;
 
 import '../../../../core/theme/color.dart';
+import '../../../../core/utils/popup.dart';
 import '../../../../core/widgets/custom_dialog.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/entities/login_request.dart';
 import '../bloc/auth_bloc.dart';
 import '../widgets/login_widget.dart';
@@ -43,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
               context: context,
               builder: (BuildContext context) {
                 return CustomDialog(
-                  message: state.error.description,
+                  message: state.error.message,
                   onTap: () {},
                 );
               },
@@ -51,18 +53,11 @@ class _LoginScreenState extends State<LoginScreen> {
           }
 
           if (state is SuccessLoginState) {
-
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return CustomDialog(
-                      message: "Hello ${state.authResponse?.firstName}",
-                      onTap: () {},
-                    );
-                  },
-                );
-              }
-
+            showSuccessPopup(context, S.of(context).congratulations,
+                "Hello ${state.authResponse?.firstName}", () {
+              context.maybePop();
+            });
+          }
         },
         builder: (context, state) {
           return Scaffold(
@@ -71,7 +66,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   SafeArea(child: _buildBody(context)),
                   if (state is LoadingLoginState)
-                    Center(child: CircularProgressIndicator(color: secondary,)),
+                    Center(
+                        child: CircularProgressIndicator(
+                      color: secondary,
+                    )),
                 ],
               ),
             ),

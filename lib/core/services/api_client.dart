@@ -19,7 +19,6 @@ class ApiClient {
         return status != null;
       },
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Cookie': 'x-sultan-token-1=${prefUtils.getToken()}'
       },

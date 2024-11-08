@@ -25,7 +25,7 @@ class AuthRepositoryImpl implements AuthRepository {
         return Left(e);
       }
     } else {
-      return Left(AppExceptionResponse(description: "No internet connexion"));
+      return Left(AppExceptionResponse(message: "No internet connexion"));
     }
   }
 

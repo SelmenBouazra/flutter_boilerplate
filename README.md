@@ -78,4 +78,11 @@ This Flutter boilerplate provides a solid foundation for mobile app development,
 - **Fonts**: Includes Poppins font family with various weights.
 - **Images and Icons**: Organized in `assets/images` and `assets/icons`.
 
+## Testing
+
+For testing purposes, you can use the following credentials:
+
+- **Username:**: emilys
+- **Password**: emilyspass
+
 ---

@@ -64,8 +64,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                         backgroundColor: Colors.transparent,
                         keyboardType: TextInputType.emailAddress,
                         validator: (value) {
-                          return validateEmail(context, value?.trim());
-                        },
+                          return validateField(
+                              context: context,
+                              value: value,
+                              message: S.of(context).please_fill_in_the_required_field);                        },
                       ),
                       SizedBox(
                         height: 18.h,
@@ -137,62 +139,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                     SizedBox(
                       width: 15.w,
                     ),
-                    CustomButton(
-                      text: S.of(context).create_account,
-                      onPressed: () {
-                      },
+                    Expanded(
+                      child: CustomButton(
+                        text: S.of(context).create_account,
+                        onPressed: () {
+                        },
+                      ),
                     ),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: 55.h,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Divider(
-                      color: primary,
-                      thickness: 2,
-                      endIndent: 10,
-                    ),
-                  ),
-                  Text(
-                    S.of(context).or_else,
-                    style: subTitleTextStyle,
-                  ),
-                  Expanded(
-                    child: Divider(
-                      color: primary,
-                      thickness: 2,
-                      indent: 10,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 18.h,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: appPadding),
-                child: CustomButton(
-                  inverseColor: true,
-                  leadingIcon: SvgPicture.asset("assets/icons/google_icon.svg"),
-                  text: S.of(context).google_connect,
-                  onPressed: () {},
-                ),
-              ),
-              SizedBox(
-                height: 13.h,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: appPadding),
-                child: CustomButton(
-                    leadingIcon: SvgPicture.asset("assets/icons/phone_icon.svg"),
-                    text: S.of(context).phone_connect, onPressed: () {}),
-              ),
-              SizedBox(
-                height: 76.h,
               ),
             ],
           ),

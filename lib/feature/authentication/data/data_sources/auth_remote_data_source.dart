@@ -24,9 +24,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     if (response.statusCode == 200) {
       var authResponse = AuthResponse.fromJson(response.data);
 
-
-        prefUtils.setToken(authResponse.accessToken ?? "");
-
+      prefUtils.setToken(authResponse.accessToken ?? "");
 
       return Future.value(authResponse);
     } else {

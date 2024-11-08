@@ -1,3 +1,3 @@
 library Endpoints;
 
-const String AUTH_LOGIN = "register";
+const String AUTH_LOGIN = "/auth/login";
