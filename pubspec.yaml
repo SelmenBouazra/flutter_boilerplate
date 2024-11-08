@@ -21,7 +21,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl:
-  # Bloc for state management
+# Bloc for state management
   flutter_bloc: ^8.1.6
   # Functional programming things
   dartz: ^0.10.1
