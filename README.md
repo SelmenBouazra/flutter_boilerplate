@@ -4,12 +4,6 @@
 
 This Flutter boilerplate provides a solid foundation for mobile app development, incorporating essential configurations and commonly-used packages. It enables quick project setup with built-in support for state management, API handling, localization, and other key features.
 
-## Overview
-
-- **Name**: flutter_boilerplate
-- **Version**: 1.0.0
-- **Description**: A starting template for new Flutter projects, featuring a well-structured project architecture, pre-configured packages, and customizable theming.
-
 ## Key Dependencies
 
 - **UI and Utilities**:
@@ -53,7 +47,7 @@ This Flutter boilerplate provides a solid foundation for mobile app development,
 
 1. **Clone the repository**:
    ```bash
-   git clone <https://github.com/SelmenBouazra/flutter_boilerplate.git>
+   git clone https://github.com/SelmenBouazra/flutter_boilerplate.git
    ```
 
 2. **Install dependencies**:
@@ -74,11 +68,10 @@ This Flutter boilerplate provides a solid foundation for mobile app development,
 ## Folder Structure
 
 - **lib/**: Contains main app code.
+    - **config/**: Flavor.
     - **core/**: Core utilities, themes, and configurations.
-    - **data/**: Manages API services and local storage.
     - **features/**: Organized by feature modules.
-    - **ui/**: Screens, widgets, and shared components.
-    - **routes/**: Navigation logic.
+    - **ui/**: DI.
 
 ## Assets and Fonts
 
