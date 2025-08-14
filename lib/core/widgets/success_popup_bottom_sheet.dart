@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -41,7 +42,13 @@ class SuccessPopupBottomSheet extends StatelessWidget {
                 color: black, fontWeight: FontWeight.w400),
           ),
           SizedBox(height: 38.h),
-          CustomButton(text: S.of(context).confirm, onPressed: onConfirm),
+          CustomButton(
+              width: double.infinity,
+              text: S.of(context).confirm,
+              onPressed: () {
+                context.maybePop();
+                onConfirm();
+              }),
           SizedBox(height: 38.h),
         ],
       ),

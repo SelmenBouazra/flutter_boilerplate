@@ -45,7 +45,7 @@ class CustomDialog extends StatelessWidget {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: SvgPicture.asset(icon),
+              child: SvgPicture.asset(icon, width: 24.h, height: 24.h,),
             ),
           ),
           Padding(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_boilerplate/injection_container.dart' as di;
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_boilerplate/injection_container.dart' as di;
 
 import 'config/app_config.dart';
 import 'core/routers/app_router.dart';
@@ -22,14 +22,11 @@ void main() async {
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  final _appRouter = AppRouter();
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -46,7 +43,7 @@ class _MyAppState extends State<MyApp> {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          routerConfig: _appRouter.config(),
+          routerConfig: appRouter.config(),
         );
       },
     );

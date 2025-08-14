@@ -13,7 +13,8 @@ class CustomButton extends StatefulWidget {
     required this.onPressed,
     this.backgroundColor = primary,
     this.textColor = white,
-    this.height = 50,
+    this.height = 40,
+    this.width = 196,
   });
 
   final String text;
@@ -23,6 +24,7 @@ class CustomButton extends StatefulWidget {
   final Color backgroundColor;
   final Color textColor;
   final double height;
+  final double width;
 
   @override
   State<CustomButton> createState() => _CustomButtonState();
@@ -40,11 +42,12 @@ class _CustomButtonState extends State<CustomButton> {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 15.w),
         height: widget.height.h,
+        width: widget.width.w,
         alignment: Alignment.center,
         decoration: BoxDecoration(
             color: backgroundColor,
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: textColor, width: 1)),
+            borderRadius: BorderRadius.circular(10.r),
+            border: Border.all(color: widget.backgroundColor, width: 2)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

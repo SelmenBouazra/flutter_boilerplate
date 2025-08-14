@@ -59,7 +59,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                       InputTextFiled(
                         controller: _controllerEmail,
                         textFieldHint: "Abc@example.co",
-                        isRequired: false,
                         prefixIcon: Icon(Icons.email, color: empty),
                         backgroundColor: Colors.transparent,
                         keyboardType: TextInputType.emailAddress,
@@ -82,7 +81,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                       InputTextFiled(
                         controller: _controllerPassword,
                         textFieldHint: "*********",
-                        isRequired: false,
                         isPasswordField: true,
                         prefixIcon: Icon(Icons.lock, color: empty),
                         backgroundColor: Colors.transparent,

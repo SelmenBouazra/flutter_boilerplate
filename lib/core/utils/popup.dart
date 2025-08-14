@@ -1,10 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 import '../widgets/confirmation_popup_bottom_sheet.dart';
 import '../widgets/success_popup_bottom_sheet.dart';
-
-
 
 void showConfirmPopup(
     BuildContext context, String title, String message, Function onConfirm) {

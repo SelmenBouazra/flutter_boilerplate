@@ -9,7 +9,6 @@ class InputTextFiled extends StatefulWidget {
     super.key,
     required this.controller,
     required this.textFieldHint,
-    required this.isRequired,
     this.onTap,
     this.readOnly = false,
     this.enabled = true,
@@ -17,18 +16,19 @@ class InputTextFiled extends StatefulWidget {
     this.keyboardType = TextInputType.emailAddress,
     this.isWrong = false,
     this.backgroundColor = Colors.white,
-    this.borderColor = Colors.black,
+    this.borderColor = borderTextInput,
     this.suffixIcon,
     this.prefixIcon,
     this.validator,
     this.isPasswordField = false,
     this.onChanged,
     this.border,
+    this.textStyle,
+    this.autofillHints,
   });
 
   final TextEditingController controller;
   final String textFieldHint;
-  final bool isRequired;
   final int linesNumber;
   final Color backgroundColor;
   final Widget? suffixIcon;
@@ -39,8 +39,10 @@ class InputTextFiled extends StatefulWidget {
   final bool enabled;
   final bool isWrong;
   final Color borderColor;
+  final TextStyle? textStyle;
   final Function? onTap;
   final Function(String)? onChanged;
+  final Iterable<String>? autofillHints;
   final String? Function(String?)? validator;
   final InputBorder? border;
 
@@ -68,10 +70,11 @@ class _InputTextFiledState extends State<InputTextFiled> {
       enabled: widget.enabled,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: widget.validator,
+      autofillHints: widget.autofillHints,
       keyboardType: widget.keyboardType,
-      style: textFiledTextStyle,
+      style: widget.textStyle ?? textFiledTextStyle,
       decoration: InputDecoration(
-        errorMaxLines: 3,
+        errorMaxLines: 5,
         hintText: widget.textFieldHint,
         hintStyle: hintTextStyle,
         prefixIcon: widget.prefixIcon,
@@ -94,30 +97,29 @@ class _InputTextFiledState extends State<InputTextFiled> {
         focusedErrorBorder: widget.border ?? UnderlineInputBorder(
           borderSide: const BorderSide(color: red),
         ),
-        suffixIcon: Padding(
+        suffixIcon: widget.isPasswordField
+            ? IconButton(
+          onPressed: () {
+            setState(() {
+              passwordVisible = !passwordVisible;
+            });
+          },
+          icon: Icon(
+            passwordVisible
+                ? Icons.visibility_off_outlined
+                : Icons.visibility_outlined,
+            size: 18.w,
+            color: empty,
+          ),
+        )
+            : (widget.suffixIcon != null
+            ? Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.sp),
-          child: !widget.isPasswordField
-              ? widget.suffixIcon
-              : IconButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        passwordVisible = !passwordVisible;
-                      },
-                    );
-                  },
-                  icon: Icon(
-                    passwordVisible
-                        ? Icons.visibility_off_outlined
-                        : Icons.visibility_outlined,
-                    size: 18.w,
-                    color: empty,
-                  ),
-                ),
-        ),
+          child: widget.suffixIcon,
+        )
+            : null),
         filled: true,
         fillColor: widget.backgroundColor,
-        isCollapsed: true,
         contentPadding: EdgeInsets.all(10.sp),
         errorStyle: validationTextStyle,
       ),

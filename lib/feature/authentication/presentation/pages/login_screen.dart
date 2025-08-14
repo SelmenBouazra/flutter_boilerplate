@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_boilerplate/core/routers/app_router.gr.dart';
 import 'package:flutter_boilerplate/injection_container.dart' as di;
 
 import '../../../../core/theme/color.dart';
@@ -55,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if (state is SuccessLoginState) {
             showSuccessPopup(context, S.of(context).congratulations,
                 "Hello ${state.authResponse?.firstName}", () {
-              context.maybePop();
+              context.replaceRoute(MainAccountManagerRoute());
             });
           }
         },
