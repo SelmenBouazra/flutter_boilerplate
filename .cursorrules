@@ -1,0 +1,107 @@
+# ========================
+# GLOBAL BEHAVIOR
+# ========================
+Follow the existing project architecture and coding style strictly.
+Analyze existing code before generating new code.
+Prefer consistency over creativity.
+
+# ========================
+# ARCHITECTURE RULES
+# ========================
+Respect Clean Architecture: data / domain / presentation layers.
+
+- Do not mix layers.
+- Presentation layer must not contain business logic.
+- Domain layer must be independent (no Flutter imports).
+- Data layer handles API, models, and repositories implementation.
+
+Always use existing architecture patterns from the project.
+
+# ========================
+# FILE MODIFICATION RULES
+# ========================
+Only modify files explicitly mentioned in the request.
+
+Do not:
+- Modify unrelated files
+- Refactor large parts of the project unless explicitly requested
+- Move code between files without permission
+
+# ========================
+# REUSE & CONSISTENCY
+# ========================
+Always reuse existing:
+- Models
+- Repositories
+- Services
+- Utilities
+
+Do not duplicate logic.
+Search the project before creating new code.
+
+# ========================
+# NAMING & STYLE
+# ========================
+Follow the naming conventions used in the project.
+
+- Keep functions small and readable
+- Use clear and descriptive names
+- Match formatting and structure of existing files
+
+Do not introduce new patterns if similar ones already exist.
+
+# ========================
+# FILE CREATION RULES
+# ========================
+Do not create new files unless absolutely necessary.
+
+If needed:
+- Follow the existing folder structure
+- Respect naming conventions
+
+# ========================
+# API & DATA HANDLING
+# ========================
+Use existing API clients (e.g., Dio setup).
+
+- Do not create new HTTP clients
+- Use existing interceptors and configurations
+- Respect existing response models
+
+# ========================
+# STATE MANAGEMENT
+# ========================
+Follow the existing state management approach (Bloc / Cubit).
+
+- Do not introduce new state management solutions
+- Keep logic inside Bloc/Cubit, not UI
+
+# ========================
+# UI RULES
+# ========================
+Do not modify UI unless explicitly requested.
+
+UI must:
+- Remain clean
+- Not contain business logic
+- Use existing widgets/components when possible
+
+# ========================
+# SAFETY RULES
+# ========================
+Do not break existing functionality.
+
+Avoid regressions:
+- Do not remove existing logic
+- Do not change method signatures without reason
+
+# ========================
+# OUTPUT QUALITY
+# ========================
+Generated code must be:
+- Clean
+- Maintainable
+- Consistent with the project
+
+If unsure:
+- Ask for clarification instead of guessing
